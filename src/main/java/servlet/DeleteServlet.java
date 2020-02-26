@@ -1,6 +1,6 @@
 package servlet;
 
-import AcessDB.ServiceClient;
+import AccessDB.ServiceClient;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

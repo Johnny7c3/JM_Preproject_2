@@ -1,4 +1,4 @@
-package AcessDB;
+package AccessDB;
 
 import Dao.UsersDao;
 import model.User;
