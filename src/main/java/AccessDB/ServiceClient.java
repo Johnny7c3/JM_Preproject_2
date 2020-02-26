@@ -52,14 +52,14 @@ public class ServiceClient {
         try {
             DriverManager.registerDriver((Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance());
             StringBuilder url = new StringBuilder();
-            url.
-                    append("jdbc:mysql://").        // db type
-                    append("localhost:").           // host name
-                    append("3306/").                // port
-                    append("preproject?").          // db name
-                    append("user=root&").           // login
-                    append("password=admin").       // password
-                    append("&serverTimezone=UTC");  // setup server time
+            url
+                    .append("jdbc:mysql://")         // db type
+                    .append("localhost:")            // host name
+                    .append("3306/")                 // port
+                    .append("preproject?")           // db name
+                    .append("user=root&")            // login
+                    .append("password=admin")        // password
+                    .append("&serverTimezone=UTC");  // setup server time
             System.out.println("URL: " + url + "\n");
             return DriverManager.getConnection(url.toString());
         } catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
