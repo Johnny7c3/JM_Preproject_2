@@ -1,6 +1,6 @@
 package servlet;
 
-import AccessDB.ServiceClient;
+import accessdb.ServiceClient;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +22,7 @@ public class DeleteServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         long id = Long.parseLong(req.getParameter("id"));
-        serv.deletUser(id);
+        serv.deleteUser(id);
         res.sendRedirect("http://localhost:8080");
     }
 }

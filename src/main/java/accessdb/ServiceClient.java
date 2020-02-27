@@ -1,6 +1,6 @@
-package AccessDB;
+package accessdb;
 
-import Dao.UsersDao;
+import dao.UserDao;
 import model.User;
 
 import java.sql.Connection;
@@ -32,12 +32,12 @@ public class ServiceClient {
         getUserDao().updateUser(user);
     }
 
-    public void deletUser(long id) {
-        getUserDao().deletUser(id);
+    public void deleteUser(long id) {
+        getUserDao().deleteUser(id);
     }
 
     public void deletAllUsers() {
-        getUserDao().deletAllUsers();
+        getUserDao().deleteAllUsers();
     }
 
     public void createTable() {
@@ -68,8 +68,8 @@ public class ServiceClient {
         }
     }
 
-    private static UsersDao getUserDao() {
-        return new UsersDao(getMysqlConnection());
+    private static UserDao getUserDao() {
+        return new UserDao(getMysqlConnection());
     }
 }
 

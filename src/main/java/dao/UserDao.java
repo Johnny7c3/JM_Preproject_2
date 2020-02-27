@@ -1,4 +1,4 @@
-package Dao;
+package dao;
 
 import model.User;
 
@@ -6,16 +6,17 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersDao {
+public class UserDao{
     private Connection connection;
 
-    public UsersDao(Connection connection) {
+    public UserDao(Connection connection) {
         this.connection = connection;
     }
 
     public boolean addUser(User user) {
         if (!userExist(user)) {
-            try (PreparedStatement pStmt = connection.prepareStatement("INSERT INTO userslist(name, surname, password, birthday) VALUES(?, ?, ?, ?)")) {
+            try (PreparedStatement pStmt = connection.prepareStatement("INSERT INTO userslist(name, surname," +
+                    "password, birthday) VALUES(?, ?, ?, ?)")) {
                 pStmt.setString(1, user.getName());
                 pStmt.setString(2, user.getSurname());
                 pStmt.setString(3, user.getPassword());
@@ -47,7 +48,8 @@ public class UsersDao {
     }
 
     public boolean userExist(User user) {
-        try (PreparedStatement pStmt = connection.prepareStatement("SELECT name, surname FROM userslist WHERE name = ? AND surname = ?")) {
+        try (PreparedStatement pStmt = connection.prepareStatement("SELECT name, surname FROM userslist" +
+                "WHERE name = ? AND surname = ?")) {
             pStmt.setString(1, user.getName());
             pStmt.setString(2, user.getSurname());
             ResultSet resultSet = pStmt.executeQuery();
@@ -80,8 +82,8 @@ public class UsersDao {
     public void updateUser(User updateUser) {
         User oldUser = getUserById(updateUser.getId());
         if (oldUser != null) {
-            try (PreparedStatement pStmt = 
-                    connection.prepareStatement("UPDATE userslist SET name = ?, surname = ?, password = ?, birthday = ? WHERE id = ?")) {
+            try (PreparedStatement pStmt = connection.prepareStatement("UPDATE userslist SET name = ?," +
+                    "surname = ?, password = ?, birthday = ? WHERE id = ?")) {
                 pStmt.setLong(5, updateUser.getId());
                 if (updateUser.getName().length() == 0) {
                     pStmt.setString(1, oldUser.getName());
@@ -110,7 +112,7 @@ public class UsersDao {
         }
     }
 
-    public void deletUser(long id) {
+    public void deleteUser(long id) {
         try (PreparedStatement pStmt = connection.prepareStatement("DELETE FROM userslist WHERE id = ?")) {
             pStmt.setLong(1, id);
             pStmt.execute();
@@ -119,7 +121,7 @@ public class UsersDao {
         }
     }
 
-    public void deletAllUsers() {
+    public void deleteAllUsers() {
         try (Statement stmt = connection.createStatement()) {
             stmt.execute("DELETE FROM userslist");
         } catch (SQLException ex) {
