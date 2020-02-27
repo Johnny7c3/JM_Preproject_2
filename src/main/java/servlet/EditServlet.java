@@ -24,15 +24,6 @@ public class EditServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//        req.setCharacterEncoding("UTF-8");
-//        User newUser = new User();
-//        newUser.setId(Long.parseLong(req.getParameter("id")));
-//        newUser.setName(req.getParameter("name"));
-//        newUser.setSurname(req.getParameter("surname"));
-//        newUser.setPassword(req.getParameter("password"));
-//        newUser.setBirthday(req.getParameter("birthday"));
-//        serv.updateUser(newUser);
-//        res.sendRedirect("http://localhost:8080");
         List<User> user = serv.getAllUser();
         req.setAttribute("users", user);
         getServletContext().getRequestDispatcher("/edit.jsp").forward(req, res);
