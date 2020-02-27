@@ -29,7 +29,7 @@ public class UpdateServlet extends HttpServlet {
         newUser.setName(req.getParameter("name"));
         newUser.setSurname(req.getParameter("surname"));
         newUser.setPassword(req.getParameter("password"));
-        newUser.setBirthday(req.getParameter("date"));
+        newUser.setBirthday(req.getParameter("birthday"));
         serv.updateUser(newUser);
         res.sendRedirect("http://localhost:8080");
     }

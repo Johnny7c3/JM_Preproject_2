@@ -18,7 +18,7 @@
     <table width="100%" cellspacing="0" cellpadding="4">
         <tr>
             <td></td>
-            <td>Добовление пользователя:</td>
+            <td>Добавление пользователя:</td>
         </tr>
         <tr>
             <td align="right" width="100">Имя:</td>
@@ -67,7 +67,7 @@
         </tr>
         <tr>
             <td align="right" width="100">Дата рождения:</td>
-            <td><input type="date" name="date"></td>
+            <td><input type="date" name="birthday"></td>
         </tr>
         <tr>
             <td></td>

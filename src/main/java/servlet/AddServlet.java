@@ -26,7 +26,7 @@ public class AddServlet extends HttpServlet {
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
         String password = req.getParameter("password");
-        String birthday = req.getParameter("date");
+        String birthday = req.getParameter("birthday");
         User newUser = new User(name, surname, password, birthday);
         serv.addUser(newUser);
         res.sendRedirect("http://localhost:8080");
