@@ -129,7 +129,7 @@ public class UsersDao {
 
     public void createTable() {
         try (Statement stmt = connection.createStatement()) {
-            stmt.execute("CREATE TABLE IF NOT EXISTS userslist (id BIGINT AUTO_INCREMENT, name VARCHAR(256)," +
+            stmt.execute("CREATE TABLE IF NOT EXISTS userslist (id bigint auto_increment, name VARCHAR(256)," +
                     "surname VARCHAR(256), password VARCHAR(256), birthday VARCHAR(64), PRIMARY KEY(id))");
         } catch (SQLException ex) {
             ex.printStackTrace();

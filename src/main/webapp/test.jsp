@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td align="right" width="100">Дата рождения:</td>
-            <td><input type="date" name="date" required placeholder></td>
+            <td><input type="date" name="birthday" required placeholder></td>
         </tr>
         <tr>
             <td></td>
