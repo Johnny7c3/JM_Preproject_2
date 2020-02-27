@@ -15,7 +15,7 @@ public class UsersDao {
 
     public boolean addUser(User user) {
         if (!userExist(user)) {
-            try (PreparedStatement pStmt = connection.prepareStatement("INSERT INTO userslist (name, surname, password, birthday) VALUES(?, ?, ?, ?)")) {
+            try (PreparedStatement pStmt = connection.prepareStatement("INSERT INTO userslist(name, surname, password, birthday) VALUES(?, ?, ?, ?)")) {
                 pStmt.setString(1, user.getName());
                 pStmt.setString(2, user.getSurname());
                 pStmt.setString(3, user.getPassword());
@@ -129,8 +129,8 @@ public class UsersDao {
 
     public void createTable() {
         try (Statement stmt = connection.createStatement()) {
-            stmt.execute("CREATE TABLE IF NOT EXISTS userslist (id bigint auto_increment, name varchar(256)," +
-                    "surname varchar(256), password varchar(256), birthday varchar (64), primary key (id))");
+            stmt.execute("CREATE TABLE IF NOT EXISTS userslist (id BIGINT AUTO_INCREMENT, name VARCHAR(256)," +
+                    "surname VARCHAR(256), password VARCHAR(256), birthday VARCHAR(64), PRIMARY KEY(id))");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
